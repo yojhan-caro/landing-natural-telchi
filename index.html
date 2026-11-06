@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Natural Telchi — Propuesta de landings</title>
-<meta property="og:title" content="Natural Telchi — 3 propuestas de landing">
-<meta property="og:description" content="Tres páginas de campaña para L-Teanina & Magnesio y L-Treonato de Magnesio, listas para anuncios y para conectar con WooCommerce.">
+<meta property="og:title" content="Natural Telchi — Propuesta de landings">
+<meta property="og:description" content="Tres landings para captar clientes con campañas pagadas, listas para conectar con la tienda.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yojhan-caro.github.io/landing-natural-telchi/">
 <meta property="og:image" content="https://yojhan-caro.github.io/landing-natural-telchi/img/landing-galeria.jpg">
@@ -15,60 +15,77 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F1F1EF;--ink:#111;--ink-2:#4A4A48;--ink-3:#8C8C88;--line:#D6D6D2;--gx:clamp(20px,6vw,96px)}
+:root{--bg:#FAFAF8;--ink:#141414;--ink-2:#55554F;--ink-3:#8E8E87;--line:#E6E6E1;--acc:#6D46A0;--gx:clamp(20px,6vw,72px)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter Tight',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-header{padding:clamp(40px,8vh,80px) var(--gx) clamp(30px,5vh,50px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-bottom:1px solid var(--line)}
-.k{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
-h1{font-size:clamp(2.6rem,7vw,6rem);font-weight:800;letter-spacing:-.06em;line-height:.88;text-transform:lowercase}
-header p{font-size:.92rem;line-height:1.6;color:var(--ink-2);max-width:42ch}
-.list{padding:clamp(30px,5vh,60px) var(--gx) 80px;display:grid;gap:clamp(28px,4vw,56px)}
-.item{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:center}
-.shot{position:relative;display:block;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,0,0,.35),0 0 0 1px rgba(0,0,0,.06);aspect-ratio:16/10;background:#ddd}
-.shot img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1)}
-.shot:hover img{transform:scale(1.03)}
-.n{font-size:.72rem;font-weight:600;letter-spacing:.16em;color:var(--ink-3);margin-bottom:12px}
-h2{font-size:clamp(1.6rem,3vw,2.6rem);font-weight:800;letter-spacing:-.045em;line-height:1;margin-bottom:14px}
-.item p{font-size:.92rem;line-height:1.6;color:var(--ink-2);max-width:46ch;margin-bottom:18px}
-.tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.tags li{font-size:.7rem;font-weight:500;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2)}
-.btn{display:inline-flex;align-items:center;gap:22px;min-height:46px;padding:0 18px;border:1.5px solid var(--ink);font-size:.84rem;font-weight:600;transition:background .3s,color .3s}
-.btn:hover{background:var(--ink);color:var(--bg)}
-footer{padding:28px var(--gx) 40px;border-top:1px solid var(--line);font-size:.78rem;color:var(--ink-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media (max-width:820px){header{grid-template-columns:1fr}.item{grid-template-columns:1fr}}
+.wrap{max-width:1080px;margin:0 auto;padding:0 var(--gx)}
+header{padding:clamp(56px,10vh,96px) 0 clamp(36px,6vh,56px)}
+.k{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:14px}
+h1{font-size:clamp(2rem,4.6vw,3.3rem);font-weight:700;letter-spacing:-.03em;line-height:1.08;max-width:18ch;margin-bottom:18px}
+header p{font-size:1.05rem;color:var(--ink-2);max-width:58ch}
+h2{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .35s cubic-bezier(.22,.8,.2,1),box-shadow .35s}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(0,0,0,.28)}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+.card .b{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:1.1rem;font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
+.card p{font-size:.88rem;color:var(--ink-2);margin-bottom:16px;flex:1}
+.card .go{font-size:.86rem;font-weight:600;color:var(--acc)}
+.card:hover .go{text-decoration:underline;text-underline-offset:3px}
+section{padding:clamp(40px,7vh,72px) 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:none;padding-top:0}
+.points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 40px}
+.pt{padding:18px 0;border-top:1px solid var(--line)}
+.pt b{display:block;font-size:1rem;font-weight:600;margin-bottom:4px}
+.pt span{font-size:.9rem;color:var(--ink-2)}
+.note{font-size:.84rem;color:var(--ink-3);margin-top:22px}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:.84rem;color:var(--ink-2)}
+footer b{color:var(--ink);font-weight:600}
+@media (max-width:860px){.grid{grid-template-columns:1fr}.points{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<header>
-  <div><div class="k">Natural Telchi · propuesta digital</div><h1>3 landings<br>para vender</h1></div>
-  <p>Tres páginas de campaña para L-Teanina &amp; Magnesio y L-Treonato de Magnesio, pensadas para anuncios de Meta: diseño a medida, móvil primero y botones de compra listos para conectar con WooCommerce.</p>
-</header>
-<main class="list">
-  <article class="item">
-    <a class="shot" href="landing-galeria.html"><img src="img/landing-galeria.jpg" alt="Vista de la landing Galería"></a>
-    <div><div class="n">01</div><h2>Galería</h2>
-      <p>Una sola pantalla, sin scroll: cada escena es un producto o un atributo de marca. Al avanzar, la tarjeta siguiente se expande y se convierte en el fondo. Precio, compra, oferta del pack y garantías siempre a la vista.</p>
-      <ul class="tags"><li>Avance automático</li><li>Swipe en móvil</li><li>Panel de compra</li></ul>
-      <a class="btn" href="landing-galeria.html">Abrir landing <span aria-hidden="true">→</span></a></div>
-  </article>
-  <article class="item">
-    <a class="shot" href="landing-frasco-l-teanina.html"><img src="img/landing-frasco-l-teanina.jpg" alt="Vista de la landing del frasco"></a>
-    <div><div class="n">02</div><h2>El frasco · edición tinta</h2>
-      <p>Papel crema, tipografía condensada con textura de impresión y manchas de tinta con los ingredientes. El frasco parte inclinado sobre el título, queda fijo al centro mientras el contenido pasa a su alrededor y aterriza en la línea de productos. Mismo efecto en el teléfono.</p>
-      <ul class="tags"><li>L-Teanina &amp; Magnesio</li><li>Frasco que viaja</li><li>Upsell 2 frascos</li></ul>
-      <a class="btn" href="landing-frasco-l-teanina.html">Abrir landing <span aria-hidden="true">→</span></a></div>
-  </article>
-  <article class="item">
-    <a class="shot" href="landing-dos-productos.html"><img src="img/landing-dos-productos.jpg" alt="Vista de la landing de dos productos"></a>
-    <div><div class="n">03</div><h2>Dúo botánico</h2>
-      <p>Dos historias con scroll, una por producto: palabra serif gigante con hojas de té o piedras en primer plano, el frasco que sube y se asienta, medallones de ingredientes y beneficios junto a su círculo de color. Cierra con el pack dúo y un comparador.</p>
-      <ul class="tags"><li>2 productos + pack</li><li>Scroll narrativo</li><li>Barra de compra contextual</li></ul>
-      <a class="btn" href="landing-dos-productos.html">Abrir landing <span aria-hidden="true">→</span></a></div>
-  </article>
-</main>
-<footer><span>Diseño y desarrollo: Yojhan Furuya · Clickeao</span><span>Ábrelas también desde el teléfono</span></footer>
+<div class="wrap">
+  <header>
+    <div class="k">Natural Telchi · Propuesta</div>
+    <h1>Tres landings para vender más en línea</h1>
+    <p>Preparé estas páginas para mostrar cómo Natural Telchi podría captar clientes con campañas en redes sociales: cada una presenta los productos de forma atractiva y lleva a la persona directo a comprar. Funcionan en celular y computador.</p>
+  </header>
+
+  <section>
+    <h2>Las propuestas</h2>
+    <div class="grid">
+      <a class="card" href="landing-galeria.html">
+        <img src="img/landing-galeria.jpg" alt="Vista de la landing Galería" loading="lazy">
+        <div class="b"><h3>Galería</h3><p>Una sola pantalla con escenas a pantalla completa. Ideal como portada de una campaña de marca.</p><span class="go">Ver landing →</span></div>
+      </a>
+      <a class="card" href="landing-frasco-l-teanina.html">
+        <img src="img/landing-frasco-l-teanina.jpg" alt="Vista de la landing El frasco" loading="lazy">
+        <div class="b"><h3>El frasco</h3><p>Para un solo producto: el frasco acompaña el recorrido y termina en la compra. Hecha para L-Teanina &amp; Magnesio.</p><span class="go">Ver landing →</span></div>
+      </a>
+      <a class="card" href="landing-dos-productos.html">
+        <img src="img/landing-dos-productos.jpg" alt="Vista de la landing Dúo botánico" loading="lazy">
+        <div class="b"><h3>Dúo botánico</h3><p>Presenta L-Teanina y L-Treonato, ayuda a elegir y destaca el pack dúo para subir el valor de cada venta.</p><span class="go">Ver landing →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lo que puedo aportar</h2>
+    <div class="points">
+      <div class="pt"><b>Landings para campañas</b><span>Páginas a medida para anuncios en Instagram y Facebook, una por producto o promoción.</span></div>
+      <div class="pt"><b>Conexión con la tienda</b><span>Botones que llevan directo al pago en WooCommerce, con precios y stock tomados de la tienda.</span></div>
+      <div class="pt"><b>Medición de resultados</b><span>Seguimiento de qué anuncio trae cada venta, para invertir donde rinde más.</span></div>
+      <div class="pt"><b>Mejora continua del sitio</b><span>Diseño, ajustes y nuevas páginas en el WordPress de la empresa, según lo que se necesite.</span></div>
+    </div>
+    <p class="note">Precios y textos de referencia: al conectar con la tienda se actualizan automáticamente.</p>
+  </section>
+
+  <footer><b>Yojhan Furuya</b> · Diseño y desarrollo web · Clickeao</footer>
+</div>
 </body>
 </html>
