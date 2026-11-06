@@ -3,89 +3,435 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Natural Telchi — Propuesta de landings</title>
-<meta property="og:title" content="Natural Telchi — Propuesta de landings">
-<meta property="og:description" content="Tres landings para captar clientes con campañas pagadas, listas para conectar con la tienda.">
+<title>Kyvant Archive</title>
+<meta name="description" content="Archivo de trabajos de Kyvant — diseño y desarrollo web por Yojhan Furuya.">
+<meta name="theme-color" content="#161616">
+<meta property="og:title" content="Kyvant Archive">
+<meta property="og:description" content="Archivo de trabajos de Kyvant — diseño y desarrollo web por Yojhan Furuya.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yojhan-caro.github.io/landing-natural-telchi/">
-<meta property="og:image" content="https://yojhan-caro.github.io/landing-natural-telchi/img/landing-galeria.jpg">
-<meta property="og:image:width" content="960">
-<meta property="og:image:height" content="600">
+<meta property="og:image" content="https://yojhan-caro.github.io/landing-natural-telchi/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/eb-garamond-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-:root{--bg:#FAFAF8;--ink:#141414;--ink-2:#55554F;--ink-3:#8E8E87;--line:#E6E6E1;--acc:#6D46A0;--gx:clamp(20px,6vw,72px)}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+@font-face{font-family:'EB Garamond';font-weight:400;font-style:normal;font-display:swap;src:url(assets/fonts/eb-garamond-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'EB Garamond';font-weight:400;font-style:italic;font-display:swap;src:url(assets/fonts/eb-garamond-latin-400-italic.woff2) format('woff2')}
+@font-face{font-family:'EB Garamond';font-weight:500;font-style:normal;font-display:swap;src:url(assets/fonts/eb-garamond-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Courier Prime';font-weight:400;font-display:swap;src:url(assets/fonts/courier-prime-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Courier Prime';font-weight:700;font-display:swap;src:url(assets/fonts/courier-prime-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(assets/fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:500;font-display:swap;src:url(assets/fonts/inter-latin-500-normal.woff2) format('woff2')}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   KYVANT ARCHIVE
+   Archivador de carpetas: cada trabajo es una carpeta de color apilada.
+   Al pasar el cursor la carpeta se asoma; al abrirla crece hasta llenar
+   la pantalla y muestra el expediente (hoja, extracto, ficha y capturas).
+   ═══════════════════════════════════════════════════════════════════════ */
+:root{
+  --bg:#161616; --bg-2:#1E1E1E; --line:rgba(255,255,255,.1); --txt:#EDEAE3; --txt-2:rgba(237,234,227,.62); --txt-3:rgba(237,234,227,.4);
+  --paper:#F4F1EA; --paper-ink:#1D1B19; --paper-2:#5A554E;
+  --plum:#5D1650; --orange:#EB5B1E; --green:#11735A; --red:#D6262B; --purple:#4A1C74; --blue:#2342D6; --pink:#C93F78; --yellow:#F3D23C; --black:#0E0E0E;
+  --serif:'EB Garamond','Garamond','Times New Roman',serif;
+  --mono:'Courier Prime','Courier New',monospace;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --gx:clamp(18px,6.4vw,104px);
+  --tab-h:clamp(32px,4.4vh,40px); --strip:clamp(32px,4.4vh,40px); --ex:min(40vw,540px);
+  --ease:cubic-bezier(.22,.8,.2,1); --ease-io:cubic-bezier(.76,0,.24,1);
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .25 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{font-family:var(--sans);color:var(--txt);background:var(--bg);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+body > main{flex:1;display:flex;flex-direction:column}
+body.lock{overflow:hidden}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1080px;margin:0 auto;padding:0 var(--gx)}
-header{padding:clamp(56px,10vh,96px) 0 clamp(36px,6vh,56px)}
-.k{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:14px}
-h1{font-size:clamp(2rem,4.6vw,3.3rem);font-weight:700;letter-spacing:-.03em;line-height:1.08;max-width:18ch;margin-bottom:18px}
-header p{font-size:1.05rem;color:var(--ink-2);max-width:58ch}
-h2{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:18px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:transform .35s cubic-bezier(.22,.8,.2,1),box-shadow .35s}
-.card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(0,0,0,.28)}
-.card img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
-.card .b{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1}
-.card h3{font-size:1.1rem;font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
-.card p{font-size:.88rem;color:var(--ink-2);margin-bottom:16px;flex:1}
-.card .go{font-size:.86rem;font-weight:600;color:var(--acc)}
-.card:hover .go{text-decoration:underline;text-underline-offset:3px}
-section{padding:clamp(40px,7vh,72px) 0;border-top:1px solid var(--line)}
-section:first-of-type{border-top:none;padding-top:0}
-.points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 40px}
-.pt{padding:18px 0;border-top:1px solid var(--line)}
-.pt b{display:block;font-size:1rem;font-weight:600;margin-bottom:4px}
-.pt span{font-size:.9rem;color:var(--ink-2)}
-.note{font-size:.84rem;color:var(--ink-3);margin-top:22px}
-footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:.84rem;color:var(--ink-2)}
-footer b{color:var(--ink);font-weight:600}
-@media (max-width:860px){.grid{grid-template-columns:1fr}.points{grid-template-columns:1fr}}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+[hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ═══ NAV ═══ */
+.nav{position:relative;z-index:5;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:calc(14px + env(safe-area-inset-top)) var(--gx) 14px;border-bottom:1px solid var(--line);font-size:.74rem}
+.nav ul{display:flex;gap:26px;list-style:none;color:var(--txt-2)}
+.nav ul a{transition:color .2s}
+.nav ul a:hover,.nav ul a[aria-current]{color:var(--txt)}
+.nav .r{justify-content:flex-end}
+.seal{width:42px;height:42px;border-radius:50%;border:1.2px solid currentColor;display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:1.02rem;letter-spacing:-.01em;justify-self:center;transition:transform .5s var(--ease)}
+.seal:hover{transform:rotate(-12deg)}
+
+/* ═══ CABECERA DEL ARCHIVO ═══ */
+.head{padding:clamp(28px,5vh,48px) var(--gx) clamp(26px,4vh,40px);display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.crumbs{font-size:.7rem;color:var(--txt-3);margin-bottom:10px}
+.crumbs span+span::before{content:"/";margin:0 8px;opacity:.6}
+.head h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,5vw,4.2rem);line-height:.95;letter-spacing:-.015em}
+.head h1 em{font-style:italic}
+.head .meta{font-family:var(--mono);font-size:.72rem;color:var(--txt-2);text-align:right;line-height:1.6}
+
+/* ═══ ARCHIVADOR ═══ */
+.cabinet{position:relative;padding:0 var(--gx) 0;padding-top:var(--tab-h);flex:1;display:flex;flex-direction:column}
+.folder.last{flex:1;display:flex;flex-direction:column}
+.folder.last .strip{flex:1}
+.folder{position:relative;background:var(--c);color:var(--fc,#fff);z-index:var(--z);transition:margin .55s var(--ease),transform .55s var(--ease),filter .4s}
+.tab{position:absolute;bottom:100%;left:var(--tx);height:var(--tab-h);min-width:clamp(150px,19vw,230px);padding:0 34px;display:flex;align-items:center;justify-content:center;background:var(--c);
+  font-family:var(--serif);font-size:clamp(1rem,1.25vw,1.2rem);letter-spacing:.005em;white-space:nowrap;
+  clip-path:polygon(0 100%,14px 0,calc(100% - 14px) 0,100% 100%);border-radius:10px 10px 0 0}
+.tab::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.strip{height:var(--strip);overflow:hidden;transition:height .55s var(--ease)}
+.folder .peek{display:grid;grid-template-columns:70px minmax(0,1fr) auto;gap:14px 30px;align-items:start;padding:calc(var(--tab-h) + 12px) 30px 0;font-family:var(--mono);font-size:.72rem;line-height:1.55;opacity:0;transition:opacity .35s}
+.folder .peek .n{opacity:.8}
+.folder .peek .d{max-width:44ch}
+.folder .peek .go{display:inline-block;margin-top:10px;border-bottom:1px solid currentColor}
+.folder .peek .dt{text-align:right;opacity:.8;white-space:nowrap}
+.folder.last .strip{height:clamp(220px,34vh,320px)}
+.folder.last .peek{opacity:1;padding-top:calc(var(--tab-h) + 22px)}
+.folder:hover,.folder:focus-within{filter:brightness(1.06)}
+@media (hover:hover){
+  .folder:not(.last):hover .strip,.folder:not(.last):focus-within .strip{height:calc(var(--tab-h) + 120px)}
+  .folder:not(.last):hover .peek,.folder:not(.last):focus-within .peek{opacity:1;transition-delay:.12s}
+}
+.folder .hit{position:absolute;inset:0;z-index:3;cursor:pointer}
+.tab{cursor:pointer;z-index:4}
+.folder .hit:focus-visible{outline-offset:-4px}
+
+.foot{padding:26px var(--gx) calc(30px + env(safe-area-inset-bottom));display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--mono);font-size:.7rem;color:var(--txt-3);background:var(--blue);background:var(--last-c,var(--blue))}
+.foot b{color:#fff;font-weight:400}
+
+/* ═══ EXPEDIENTE ABIERTO ═══ */
+.grow{position:fixed;z-index:80;background:var(--c);border-radius:12px 12px 0 0;pointer-events:none;transition:left .7s var(--ease-io),top .7s var(--ease-io),width .7s var(--ease-io),height .7s var(--ease-io),border-radius .7s var(--ease-io)}
+.dossier{position:fixed;inset:0;z-index:90;background:var(--c);overflow:hidden;visibility:hidden;opacity:0;transition:opacity .35s,visibility 0s .35s}
+.dossier.open{visibility:visible;opacity:1;transition:opacity .35s}
+.dbar{position:absolute;left:0;right:0;top:0;z-index:30;height:calc(46px + env(safe-area-inset-top));padding:env(safe-area-inset-top) var(--gx) 0;display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(14,14,14,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:.72rem;color:var(--txt-2)}
+.dbar .crumbs{margin:0;color:var(--txt-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dbar .crumbs span:last-child{color:var(--txt)}
+.dbar .act{display:flex;align-items:center;gap:8px;flex:none}
+.dbar .open-l{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:999px;background:var(--yellow);color:#111;font-weight:500;transition:transform .2s}
+.dbar .open-l:hover{transform:translateY(-1px)}
+.dbar .x{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--txt)}
+.dbar .x:hover{background:rgba(255,255,255,.08)}
+.desk{position:absolute;inset:0;top:calc(46px + env(safe-area-inset-top));overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.desk-in{position:relative;min-height:100%;padding:40px clamp(70px,8vw,120px) 80px var(--gx)}
+
+/* lomos laterales (otras carpetas) */
+.spines{position:absolute;right:0;top:calc(46px + env(safe-area-inset-top));bottom:0;z-index:25;width:clamp(44px,4.4vw,58px);display:flex;flex-direction:column;justify-content:flex-start;padding-top:24px;gap:6px}
+.spine{position:relative;height:clamp(120px,19vh,170px);background:var(--sc);color:var(--sf,#fff);writing-mode:vertical-rl;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:.98rem;border-radius:10px 0 0 10px;box-shadow:-6px 0 14px rgba(0,0,0,.22);transition:transform .35s var(--ease),width .3s;transform:translateX(8px)}
+.spine:hover{transform:translateX(0)}
+.spine[aria-current]{transform:translateX(0);box-shadow:-6px 0 14px rgba(0,0,0,.3),inset 3px 0 0 rgba(255,255,255,.4)}
+
+/* hojas */
+.sheet{position:relative;background:var(--paper);color:var(--paper-ink);box-shadow:0 30px 60px -28px rgba(0,0,0,.6),0 2px 6px rgba(0,0,0,.18)}
+.sheet::before{content:"";position:absolute;inset:0;background:var(--noise);pointer-events:none;mix-blend-mode:multiply}
+.drag{touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.drag.held{cursor:grabbing;z-index:20!important;box-shadow:0 46px 80px -30px rgba(0,0,0,.7),0 4px 10px rgba(0,0,0,.2)}
+
+.main{max-width:780px;margin-left:calc(var(--ex) - 40px);padding:56px 60px 60px 100px;min-height:680px}
+.main .holes{position:absolute;left:30px;top:70px;bottom:70px;display:flex;flex-direction:column;justify-content:space-between}
+.main .holes i{width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:inset 0 2px 3px rgba(0,0,0,.35)}
+.main .margin{position:absolute;left:66px;top:0;bottom:0;width:1px;background:rgba(201,63,120,.3)}
+.main .note{position:absolute;left:100px;top:52px;width:260px;font-family:var(--mono);font-size:.68rem;line-height:1.5;color:var(--paper-2)}
+.main .file{position:absolute;right:40px;top:44px;font-family:var(--mono);font-size:.68rem;color:var(--blue);border:1.5px solid var(--blue);padding:3px 8px;transform:rotate(3deg)}
+.main .side-code{position:absolute;right:16px;top:120px;writing-mode:vertical-rl;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--paper-2);opacity:.7}
+.main .body{padding-top:70px}
+.main h2{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(2.6rem,4.4vw,3.8rem);line-height:1;margin-bottom:22px;letter-spacing:-.01em}
+.main p{font-family:var(--serif);font-size:1.08rem;line-height:1.55;margin-bottom:16px;color:#2A2622}
+.main ul{list-style:none;margin:6px 0 20px;font-family:var(--serif);font-size:1.04rem}
+.main ul li{padding:7px 0;border-top:1px solid rgba(29,27,25,.14);display:flex;gap:12px}
+.main ul li::before{content:"—";color:var(--c)}
+.main .sign{display:flex;align-items:center;justify-content:space-between;margin-top:28px;padding-top:16px;border-top:1px solid rgba(29,27,25,.25);font-family:var(--mono);font-size:.66rem;color:var(--paper-2)}
+.stamp{width:92px;height:92px;border-radius:50%;border:2px solid var(--blue);color:var(--blue);display:grid;place-items:center;transform:rotate(-14deg);opacity:.85;position:relative;font-family:var(--serif);font-style:italic;font-size:1.35rem}
+.stamp::before{content:"";position:absolute;inset:6px;border-radius:50%;border:1px dashed var(--blue)}
+.stamp small{position:absolute;bottom:12px;font-family:var(--mono);font-style:normal;font-size:.48rem;letter-spacing:.14em}
+.stamp small.t{top:12px;bottom:auto}
+
+/* extracto (rosa) con la captura */
+.excerpt{position:absolute;left:var(--gx);top:110px;width:var(--ex);background:#E59AB2;padding:30px 28px 26px;z-index:6;transform:rotate(-1.2deg)}
+.excerpt::before{opacity:.8}
+.excerpt h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:2.3rem;line-height:1;margin-bottom:16px;color:#2A1820}
+.excerpt figure{position:relative;border:1px solid rgba(42,24,32,.25);background:#fff;padding:6px}
+.excerpt figure img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.excerpt figcaption{display:flex;justify-content:space-between;margin-top:12px;font-family:var(--mono);font-size:.62rem;color:#4A2A36}
+
+/* ficha (amarilla, rasgada) */
+.receipt{position:absolute;left:calc(var(--gx) + var(--ex) - 250px);top:0;width:236px;background:var(--yellow);padding:34px 20px 20px;z-index:8;transform:rotate(4deg);
+  clip-path:polygon(0 6%,5% 2%,10% 5%,16% 1%,22% 4%,28% 0,35% 4%,41% 1%,48% 5%,55% 1%,61% 4%,68% 0,74% 4%,81% 1%,87% 5%,93% 1%,100% 4%,100% 100%,0 100%)}
+.receipt::before{opacity:.7}
+.receipt .ttl{font-family:var(--mono);font-weight:700;font-size:1.45rem;letter-spacing:.06em;margin-bottom:14px;color:#2B2410}
+.receipt dl{font-family:var(--mono);font-size:.66rem;line-height:1.4;color:#3A3214;display:grid;grid-template-columns:auto 1fr;gap:6px 10px}
+.receipt dt{opacity:.7;text-transform:uppercase;font-size:.56rem;letter-spacing:.08em;padding-top:1px}
+.receipt .btn{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding:10px 12px;border:1.5px solid #2B2410;font-family:var(--mono);font-weight:700;font-size:.72rem;color:#2B2410;transition:background .2s,color .2s}
+.receipt .btn:hover{background:#2B2410;color:var(--yellow)}
+.clip{position:absolute;right:16px;top:-26px;width:26px;height:74px;z-index:2;fill:none;stroke:#8A8A8A;stroke-width:2.4;stroke-linecap:round;pointer-events:none}
+
+/* captura móvil (polaroid) */
+.phone{position:absolute;left:calc(var(--gx) + 30px);top:620px;width:200px;background:#fff;padding:10px 10px 36px;z-index:7;transform:rotate(-5deg)}
+.phone img{width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;border:1px solid #ddd}
+.phone span{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-family:var(--serif);font-style:italic;font-size:1rem;color:#333}
+.tape{position:absolute;top:-12px;left:50%;width:84px;height:24px;transform:translateX(-50%) rotate(-3deg);background:rgba(255,255,240,.55);box-shadow:0 1px 2px rgba(0,0,0,.1)}
+
+/* entrada del expediente */
+.dossier .anim{opacity:0;transform:translateY(40px) rotate(var(--rot,0deg))}
+.dossier.shown .anim{opacity:1;transform:rotate(var(--rot,0deg));transition:opacity .6s var(--ease),transform .8s var(--ease)}
+.dossier.shown .a1{transition-delay:.05s}.dossier.shown .a2{transition-delay:.16s}.dossier.shown .a3{transition-delay:.26s}.dossier.shown .a4{transition-delay:.36s}
+
+/* ═══ TABLET ═══ */
+@media (max-width:1100px){
+  :root{--ex:min(44vw,420px)}
+  .main{padding:50px 34px 50px 84px}
+  .main .note{left:84px;width:auto;right:120px}
+}
+/* ═══ MÓVIL ═══ */
+@media (max-width:760px){
+  :root{--gx:14px;--tab-h:42px;--strip:42px}
+  .nav{grid-template-columns:1fr auto;font-size:.72rem}
+  .nav ul.l{display:none}
+  .nav .seal{grid-column:1;justify-self:start;width:38px;height:38px}
+  .nav .r{gap:16px}
+  .head .meta{text-align:left}
+  .tab{min-width:0;width:auto;padding:0 24px;font-size:1.02rem}
+  .folder:nth-child(3n+3) .tab{left:auto;right:0}
+  .folder:nth-child(3n+2) .tab{left:30%}
+  .folder .peek{grid-template-columns:1fr;gap:6px;padding:calc(var(--tab-h) + 10px) 18px 0}
+  .folder .peek .dt{text-align:left}
+  .folder.last .strip{height:auto;padding-bottom:28px}
+
+  .spines{left:0;right:0;width:auto;top:calc(46px + env(safe-area-inset-top));bottom:auto;height:34px;flex-direction:row;padding:0 8px;gap:4px;overflow-x:auto;scrollbar-width:none}
+  .spines::-webkit-scrollbar{display:none}
+  .spine{writing-mode:horizontal-tb;height:30px;flex:none;padding:0 14px;border-radius:0 0 8px 8px;font-size:.86rem;transform:translateY(-4px)}
+  .spine[aria-current]{transform:none}
+  .desk{top:calc(80px + env(safe-area-inset-top))}
+  .desk-in{padding:22px 14px 60px;display:flex;flex-direction:column;gap:22px}
+  .excerpt,.receipt,.phone,.main{position:relative;left:auto;right:auto;top:auto;width:auto;margin:0}
+  .excerpt{order:1;padding:22px 16px 18px}
+  .excerpt h3{font-size:1.8rem}
+  .receipt{order:2;width:84%;align-self:flex-end;margin-right:4px}
+  .phone{order:3;width:62%;align-self:flex-start;margin-left:6px}
+  .main{order:0;padding:30px 18px 30px 46px;min-height:0}
+  .main .holes{left:14px}.main .holes i{width:10px;height:10px}
+  .main .margin{left:34px}
+  .main .note{position:relative;left:auto;right:auto;top:auto;width:auto;margin-bottom:16px}
+  .main .file{right:14px;top:14px}
+  .main .side-code{display:none}
+  .main .body{padding-top:0}
+  .main h2{font-size:2.5rem}
+  .main p{font-size:1.02rem}
+  .stamp{width:76px;height:76px;font-size:1.1rem}
+  .drag{touch-action:auto;cursor:default}
+  .dbar .open-l span{display:none}
+  .dbar .open-l{padding:0 12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .grow{transition-duration:.01s}
+  .dossier .anim{transition:none!important;opacity:1;transform:rotate(var(--rot,0deg))}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="k">Natural Telchi · Propuesta</div>
-    <h1>Tres landings para vender más en línea</h1>
-    <p>Preparé estas páginas para mostrar cómo Natural Telchi podría captar clientes con campañas en redes sociales: cada una presenta los productos de forma atractiva y lleva a la persona directo a comprar. Funcionan en celular y computador.</p>
-  </header>
+<header class="nav">
+  <ul class="l"><li><a href="#" aria-current="page">Archivo</a></li><li><a href="#" data-open="galeria">Proyectos</a></li><li><a href="#" data-open="proceso">Proceso</a></li></ul>
+  <a class="seal" href="#" aria-label="Kyvant, inicio">ky</a>
+  <ul class="r"><li><a href="#" data-open="kyvant">Sobre Kyvant</a></li></ul>
+</header>
 
-  <section>
-    <h2>Las propuestas</h2>
-    <div class="grid">
-      <a class="card" href="landing-galeria.html">
-        <img src="img/landing-galeria.jpg" alt="Vista de la landing Galería" loading="lazy">
-        <div class="b"><h3>Galería</h3><p>Una sola pantalla con escenas a pantalla completa. Ideal como portada de una campaña de marca.</p><span class="go">Ver landing →</span></div>
-      </a>
-      <a class="card" href="landing-frasco-l-teanina.html">
-        <img src="img/landing-frasco-l-teanina.jpg" alt="Vista de la landing El frasco" loading="lazy">
-        <div class="b"><h3>El frasco</h3><p>Para un solo producto: el frasco acompaña el recorrido y termina en la compra. Hecha para L-Teanina &amp; Magnesio.</p><span class="go">Ver landing →</span></div>
-      </a>
-      <a class="card" href="landing-dos-productos.html">
-        <img src="img/landing-dos-productos.jpg" alt="Vista de la landing Dúo botánico" loading="lazy">
-        <div class="b"><h3>Dúo botánico</h3><p>Presenta L-Teanina y L-Treonato, ayuda a elegir y destaca el pack dúo para subir el valor de cada venta.</p><span class="go">Ver landing →</span></div>
-      </a>
+<main>
+  <div class="head">
+    <div>
+      <div class="crumbs"><span>Archivo</span><span>Proyectos recientes</span></div>
+      <h1>Kyvant <em>Archive</em></h1>
     </div>
-  </section>
+    <div class="meta">Expedientes 01–05<br>Diseño y desarrollo web · Chile</div>
+  </div>
+  <div class="cabinet" id="cabinet" aria-label="Carpetas del archivo"></div>
+</main>
+<footer class="foot" id="foot"><span><b>Kyvant</b> — Yojhan Furuya</span><span>Archivo actualizado · <span id="yr">2026</span></span></footer>
 
-  <section>
-    <h2>Lo que puedo aportar</h2>
-    <div class="points">
-      <div class="pt"><b>Landings para campañas</b><span>Páginas a medida para anuncios en Instagram y Facebook, una por producto o promoción.</span></div>
-      <div class="pt"><b>Conexión con la tienda</b><span>Botones que llevan directo al pago en WooCommerce, con precios y stock tomados de la tienda.</span></div>
-      <div class="pt"><b>Medición de resultados</b><span>Seguimiento de qué anuncio trae cada venta, para invertir donde rinde más.</span></div>
-      <div class="pt"><b>Mejora continua del sitio</b><span>Diseño, ajustes y nuevas páginas en el WordPress de la empresa, según lo que se necesite.</span></div>
+<div class="grow" id="grow" aria-hidden="true" hidden></div>
+
+<section class="dossier" id="dossier" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <div class="dbar">
+    <div class="crumbs" id="dCrumbs"></div>
+    <div class="act">
+      <a class="open-l" id="dOpen" href="#" target="_blank" rel="noopener"><span>Abrir landing</span> ↗</a>
+      <button class="x" id="dClose" aria-label="Cerrar expediente">✕</button>
     </div>
-    <p class="note">Precios y textos de referencia: al conectar con la tienda se actualizan automáticamente.</p>
-  </section>
+  </div>
+  <nav class="spines" id="spines" aria-label="Otras carpetas"></nav>
+  <div class="desk" id="desk"><div class="desk-in" id="deskIn"></div></div>
+</section>
 
-  <footer><b>Yojhan Furuya</b> · Diseño y desarrollo web · Kyvant</footer>
-</div>
+<script>
+(() => {
+  'use strict';
+  /* ═══ CONTENIDO DEL ARCHIVO ═══ */
+  const FOLDERS = [
+    { id:'galeria', name:'Galería', c:'var(--plum)', tx:'0%', type:'project', n:'01',
+      client:'Natural Telchi', product:'L-Teanina · L-Treonato · Pack', date:'Nov. 2026', url:'landing-galeria.html', img:'galeria',
+      peek:'Landing de una sola pantalla. Escenas a pantalla completa que se expanden desde tarjetas.',
+      title:'Galería', lead:'Una landing que cabe en una sola pantalla y funciona como portada de campaña de marca.',
+      text:['Cada escena presenta un producto o un atributo de la marca. Al avanzar, la tarjeta siguiente crece hasta convertirse en el fondo, con el título entrando línea por línea.','Precio, botón de compra, oferta del pack y garantías quedan siempre a la vista, sin necesidad de hacer scroll.'],
+      list:['Avance automático y deslizar con el dedo','Panel de compra con las tres opciones','Profundidad: capas, parallax y giro 3D'],
+      kind:'Landing de campaña', excerpt:'Vista A' },
+    { id:'frasco', name:'El frasco', c:'var(--orange)', tx:'34%', type:'project', n:'02',
+      client:'Natural Telchi', product:'L-Teanina & Magnesio', date:'Nov. 2026', url:'landing-frasco-l-teanina.html', img:'frasco',
+      peek:'Edición tinta. El frasco recorre la página y aterriza en su tarjeta de compra.',
+      title:'El frasco', lead:'Una página para un solo producto, contada como un impreso: papel crema, tinta y un frasco que acompaña todo el recorrido.',
+      text:['El frasco parte inclinado sobre el título, se queda fijo al centro mientras el contenido pasa a su alrededor y termina en su lugar dentro de la línea de productos.','Cierra con un selector de uno o dos frascos que empuja hacia el despacho gratis.'],
+      list:['Manchas de tinta con los ingredientes','Mismo efecto en teléfono','Upsell de 2 frascos'],
+      kind:'Landing de producto', excerpt:'Vista B' },
+    { id:'duo', name:'Dúo botánico', c:'var(--green)', tx:'68%', type:'project', n:'03',
+      client:'Natural Telchi', product:'L-Teanina · L-Treonato · Pack dúo', date:'Nov. 2026', url:'landing-dos-productos.html', img:'duo',
+      peek:'Dos historias con scroll, una por producto, que terminan en el pack dúo.',
+      title:'Dúo botánico', lead:'Dos productos, dos historias: cada una empieza con una palabra gigante entre hojas o piedras y termina en la compra.',
+      text:['El frasco sube y se asienta, aparecen los ingredientes en medallones y luego pasa a su círculo de color junto a los beneficios.','Al final, el pack dúo y un comparador ayudan a elegir y suben el valor de cada venta.'],
+      list:['Serif editorial y elementos en primer plano','Barra de compra que cambia según el producto','Comparador con el pack destacado'],
+      kind:'Landing multi-producto', excerpt:'Vista C' },
+    { id:'proceso', name:'Proceso', c:'var(--red)', tx:'0%', type:'note', n:'04',
+      peek:'Cómo trabajo: de la referencia al sitio publicado.', date:'—',
+      title:'Proceso', lead:'Cada proyecto parte de una referencia visual y termina en una página publicada, medible y conectada a la tienda.',
+      list:['Referencia: se analiza cuadro a cuadro','Diseño a medida, móvil primero','Desarrollo propio, liviano y rápido','Conexión con WooCommerce y medición de campañas','Ajustes con resultados reales'] },
+    { id:'kyvant', name:'Sobre Kyvant', c:'var(--blue)', tx:'34%', type:'note', n:'05', last:true,
+      peek:'Kyvant es el estudio de Yojhan Furuya: diseño y desarrollo web desde Chile. Páginas y sistemas a medida, pensados para vender y para ser usados.', date:'Chile',
+      title:'Sobre Kyvant', lead:'Kyvant es el estudio de diseño y desarrollo web de Yojhan Furuya.',
+      text:['Diseño páginas y sistemas web a medida: sitios de marca, landings de campaña y herramientas internas. Cuido el detalle visual tanto como que funcionen rápido y sean fáciles de usar.'] }
+  ];
+
+  const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MOB=matchMedia('(max-width:760px)');
+  $('#yr').textContent=new Date().getFullYear();
+
+  /* ═══ ARCHIVADOR ═══ */
+  const cab=$('#cabinet');
+  FOLDERS.forEach((f,i)=>{
+    const el=document.createElement('article');
+    el.className='folder'+(f.last?' last':'');
+    el.style.setProperty('--c',f.c); el.style.setProperty('--tx',f.tx); el.style.setProperty('--z',i+1);
+    el.dataset.id=f.id;
+    el.innerHTML=`<div class="tab">${f.name}</div>
+      <div class="strip"><div class="peek"><span class="n">${f.n}${f.type==='project'?'':' · nota'}</span><div class="d">${f.peek}${f.url?`<br><span class="go">Abrir expediente</span>`:''}</div><span class="dt">${f.date}</span></div></div>
+      <button class="hit" aria-label="Abrir ${f.name}"></button>`;
+    cab.appendChild(el);
+  });
+  document.documentElement.style.setProperty('--last-c',FOLDERS[FOLDERS.length-1].c);
+  cab.addEventListener('click',e=>{ const h=e.target.closest('.hit,.tab'); if(h) openF(h.closest('.folder').dataset.id,h.closest('.folder')); });
+
+  /* ═══ EXPEDIENTE ═══ */
+  const dos=$('#dossier'), grow=$('#grow'), deskIn=$('#deskIn'), desk=$('#desk');
+  const spines=$('#spines'); let current=null, lastFocus=null;
+  FOLDERS.forEach(f=>{ const b=document.createElement('button'); b.className='spine'; b.textContent=f.name; b.style.setProperty('--sc',f.c); b.dataset.id=f.id; spines.appendChild(b); });
+  spines.addEventListener('click',e=>{ const b=e.target.closest('.spine'); if(b&&b.dataset.id!==current) render(b.dataset.id,true); });
+
+  const clipSVG='<svg class="clip" viewBox="0 0 26 74" aria-hidden="true"><path d="M7 20V8a6 6 0 0 1 12 0v52a9 9 0 0 1-18 0V18"/></svg>';
+  function stamp(){ return `<div class="stamp"><small class="t">ARCHIVE</small>kyvant<small>— ${new Date().getFullYear()} —</small></div>`; }
+
+  function render(id,swap){
+    const f=FOLDERS.find(x=>x.id===id); if(!f) return;
+    current=id;
+    dos.style.setProperty('--c',f.c);
+    $('#dCrumbs').innerHTML=`<span>Archivo</span><span>${f.client||'Notas'}</span><span id="dTitle">${f.name}</span>`.replace(/<span>/g,'<span>');
+    $('#dCrumbs').innerHTML=['Archivo',f.client||'Notas',f.name].map(s=>`<span>${s}</span>`).join('');
+    const ol=$('#dOpen'); if(f.url){ ol.hidden=false; ol.href=f.url; } else ol.hidden=true;
+    $$('.spine',spines).forEach(s=>s.toggleAttribute('aria-current',s.dataset.id===id));
+    const body=`
+      <div class="sheet main anim a1">
+        <div class="holes" aria-hidden="true"><i></i><i></i><i></i></div><div class="margin" aria-hidden="true"></div>
+        <div class="note">${f.client?`Cliente: ${f.client}.<br>${f.product}.<br>${f.date}.`:`Nota interna.<br>Kyvant Archive.`}</div>
+        <div class="file">File #${f.n}</div>
+        <div class="side-code" aria-hidden="true">KYV-${f.n}-${f.id.toUpperCase()}</div>
+        <div class="body">
+          <h2 id="dTitle">${f.title}</h2>
+          <p>${f.lead}</p>
+          ${(f.text||[]).map(t=>`<p>${t}</p>`).join('')}
+          ${f.list?`<ul>${f.list.map(l=>`<li>${l}</li>`).join('')}</ul>`:''}
+          <div class="sign"><span>Yojhan Furuya · Kyvant</span>${stamp()}</div>
+        </div>
+      </div>
+      ${f.type==='project'?`
+      <div class="sheet excerpt drag anim a2" style="--rot:-1.2deg">
+        <h3>${f.excerpt}</h3>
+        <figure><img src="assets/img/${f.img}-desktop.jpg" alt="Captura de escritorio de ${f.title}" width="1200" height="750" draggable="false"><figcaption><span>Escritorio · 1440 px</span><span>${f.n}</span></figcaption></figure>
+      </div>
+      <div class="sheet receipt drag anim a3" style="--rot:4deg">
+        ${clipSVG}
+        <div class="ttl">FICHA</div>
+        <dl><dt>Tipo</dt><dd>${f.kind}</dd><dt>Cliente</dt><dd>${f.client}</dd><dt>Producto</dt><dd>${f.product}</dd><dt>Formato</dt><dd>Responsive · HTML/CSS/JS</dd><dt>Compra</dt><dd>WooCommerce / WhatsApp</dd></dl>
+        <a class="btn" href="${f.url}" target="_blank" rel="noopener">Abrir landing <span>↗</span></a>
+      </div>
+      <div class="sheet phone drag anim a4" style="--rot:-5deg">
+        <div class="tape" aria-hidden="true"></div>
+        <img src="assets/img/${f.img}-mobile.jpg" alt="Captura en teléfono de ${f.title}" width="390" height="844" draggable="false" loading="lazy">
+        <span>en el teléfono</span>
+      </div>`:''}`;
+    if(swap&&!reduced){
+      dos.classList.remove('shown');
+      setTimeout(()=>{ deskIn.innerHTML=body; desk.scrollTop=0; layoutDesk(); requestAnimationFrame(()=>requestAnimationFrame(()=>dos.classList.add('shown'))); },180);
+    } else { deskIn.innerHTML=body; desk.scrollTop=0; layoutDesk(); }
+    if(location.hash!=='#'+id) history.replaceState(null,'','#'+id);
+  }
+
+  function layoutDesk(){
+    if(MOB.matches) return;
+    const main=$('.main',deskIn), ph=$('.phone',deskIn), ex=$('.excerpt',deskIn);
+    const rc=$('.receipt',deskIn);
+    if(ph&&ex){ ph.style.top=(ex.offsetTop+ex.offsetHeight-40)+'px'; }
+    if(rc&&ex){ rc.style.top=(ex.offsetTop+ex.offsetHeight-110)+'px'; }
+    if(rc&&ph&&main){ deskIn.style.minHeight=Math.max(main.offsetTop+main.offsetHeight, ph.offsetTop+ph.offsetHeight, rc.offsetTop+rc.offsetHeight)+80+'px'; return enableDrag(); }
+    if(main&&ph){ deskIn.style.minHeight=Math.max(main.offsetTop+main.offsetHeight, ph.offsetTop+ph.offsetHeight)+80+'px'; }
+    enableDrag();
+  }
+
+  function openF(id,folderEl){
+    lastFocus=document.activeElement;
+    render(id,false);
+    document.body.classList.add('lock');
+    const f=FOLDERS.find(x=>x.id===id);
+    if(folderEl&&!reduced){
+      const r=folderEl.getBoundingClientRect();
+      grow.hidden=false; grow.style.setProperty('--c',f.c);
+      Object.assign(grow.style,{transition:'none',left:r.left+'px',top:r.top+'px',width:r.width+'px',height:Math.max(r.height,60)+'px',borderRadius:'12px 12px 0 0'});
+      void grow.offsetWidth; grow.style.transition='';
+      Object.assign(grow.style,{left:'0px',top:'0px',width:innerWidth+'px',height:innerHeight+'px',borderRadius:'0'});
+      setTimeout(()=>{ dos.classList.add('open'); requestAnimationFrame(()=>{ dos.classList.add('shown'); grow.hidden=true; layoutDesk(); }); $('#dClose').focus(); },640);
+    } else { dos.classList.add('open','shown'); layoutDesk(); $('#dClose').focus(); }
+    history.pushState({d:id},'','#'+id);
+  }
+  function closeF(fromPop){
+    dos.classList.remove('shown','open'); document.body.classList.remove('lock');
+    if(!fromPop) history.pushState(null,'',location.pathname);
+    current=null; lastFocus&&lastFocus.focus&&lastFocus.focus();
+  }
+  $('#dClose').addEventListener('click',()=>closeF(false));
+  addEventListener('keydown',e=>{ if(e.key==='Escape'&&current) closeF(false); });
+  addEventListener('popstate',()=>{ const id=location.hash.slice(1); if(FOLDERS.some(f=>f.id===id)){ if(!current) openF(id,null); else render(id,true); } else if(current) closeF(true); });
+  $$('[data-open]').forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); const id=a.dataset.open; openF(id,$(`.folder[data-id="${id}"]`)); }));
+  $('.seal').addEventListener('click',e=>{ e.preventDefault(); if(current) closeF(false); scrollTo({top:0,behavior:'smooth'}); });
+  addEventListener('resize',()=>{ if(current) layoutDesk(); });
+
+  /* hojas que se pueden mover (escritorio) */
+  let zTop=10;
+  function enableDrag(){
+    if(MOB.matches||!matchMedia('(pointer:fine)').matches) return;
+    $$('.drag',deskIn).forEach(el=>{
+      if(el._drag) return; el._drag=true;
+      let sx,sy,ox=0,oy=0,down=false;
+      el.addEventListener('pointerdown',e=>{
+        if(e.target.closest('a,button')) return;
+        down=true; sx=e.clientX; sy=e.clientY; el.setPointerCapture(e.pointerId); el.classList.add('held'); el.style.zIndex=++zTop;
+        const m=/translate\(([-\d.]+)px, ([-\d.]+)px\)/.exec(el.style.translate||'');
+      });
+      el.addEventListener('pointermove',e=>{ if(!down) return; el.style.translate=`${ox+e.clientX-sx}px ${oy+e.clientY-sy}px`; });
+      const up=e=>{ if(!down) return; down=false; ox+=e.clientX-sx; oy+=e.clientY-sy; el.classList.remove('held'); };
+      el.addEventListener('pointerup',up); el.addEventListener('pointercancel',up);
+    });
+  }
+
+  /* enlace directo: #galeria abre el expediente */
+  const start=location.hash.slice(1);
+  if(FOLDERS.some(f=>f.id===start)){ render(start,false); dos.classList.add('open','shown'); document.body.classList.add('lock'); history.replaceState({d:start},'','#'+start); }
+})();
+</script>
 </body>
 </html>
