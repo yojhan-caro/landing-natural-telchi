@@ -9,4 +9,4 @@ Tres propuestas de landing page para **L-Teanina & Magnesio** y **L-Treonato de 
 
 Cada página es un único archivo HTML autocontenido, responsive y con botones de compra listos para conectar con WooCommerce (o WhatsApp mientras tanto).
 
-Diseño y desarrollo: Yojhan Furuya · Clickeao.
+Diseño y desarrollo: Yojhan Furuya · Kyvant.
